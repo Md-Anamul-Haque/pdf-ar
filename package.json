@@ -1,0 +1,81 @@
+{
+  "version": "0.1.1",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "pdf-ar",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Md-Anamul-Haque/pdf-ar.git"
+  },
+  "keywords": [
+    "pdf-ar",
+    "window.print",
+    "jspdf",
+    "pdf"
+  ],
+  "author": "md-anamul-haque",
+  "module": "dist/pdf-ar.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/pdf-ar.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/pdf-ar.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/Md-Anamul-Haque/pdf-ar/issues"
+  },
+  "homepage": "https://github.com/Md-Anamul-Haque/pdf-ar#readme",
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^8.2.4",
+    "@types/react": "^18.2.12",
+    "@types/react-dom": "^18.2.5",
+    "@types/styled-components": "^5.1.26",
+    "@types/uuid": "^9.0.2",
+    "husky": "^8.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "size-limit": "^8.2.4",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.5.3",
+    "typescript": "^5.1.3"
+  },
+  "dependencies": {
+    "styled-components": "^6.0.0-rc.3",
+    "uuid": "^9.0.0"
+  }
+}
