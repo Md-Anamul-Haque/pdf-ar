@@ -43,7 +43,7 @@ describe('it', () => {
     body: [
       ['Rokan', '50', '60', '70', '80', '260'],
       ['Rokan', '50', '60', '70', '80', '260'],
-      ['Rokan', '50', '60', '70', '80', '260'],
+      ['Rokan', '50', '60', 70, '80', '260'],
     ],
     foot: [{ colSpan: 4, value: 'total : ', className: 'text-right' }, "780"],
     width: '8in',
