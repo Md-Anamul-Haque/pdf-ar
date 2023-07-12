@@ -37,14 +37,15 @@ describe('it', () => {
       name: 'testing',
       lines: ['first line', 'secend line']
     },
-    beforeThead: ['username', { value: 'subjects', colSpan: 12, className: 'text-center' }, 'actions'],
-    head: ['username', 'bangla', 'eng', 'islam', 'math', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', { value: "=SUM_R(bangla:) <as> total", colSpan: 3 }],
+    beforeThead: ['username', { value: 'subjects', colSpan: 4, className: 'text-center' }, 'actions'],
+    head: ['username', 'bangla', 'eng', 'islam', 'math', { value: "total", colSpan: 2 }],
+
     body: [
-      ['Rokan', '89', '99', '59', '98', '89', '99', '59', '98', '89', '99', '59', '98'],
-      ['Rokan', '89', '99', '59', '98', '89', '99', '59', '98', '89', { value: '99', colSpan: 2 }, '100'],
-      ['Rokan', '89', '99', '59', '98', '89', '99', '59', '98', '89', '99', '59', '98'],
+      ['Rokan', '50', '60', '70', '80', '260'],
+      ['Rokan', '50', '60', '70', '80', '260'],
+      ['Rokan', '50', '60', '70', '80', '260'],
     ],
-    foot: [{ colSpan: 13, value: 'total : ', className: 'text-right' }, "=SUM_C(total)"],
+    foot: [{ colSpan: 4, value: 'total : ', className: 'text-right' }, "780"],
     width: '8in',
     margin: '0 auto'
   })

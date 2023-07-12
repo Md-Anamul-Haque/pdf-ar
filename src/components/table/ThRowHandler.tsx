@@ -1,20 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import { v4 as uuidv4 } from "uuid";
 import td_th_textAlign from "../../lib/td_th_textAlign";
-import { TbodyTypes, TdType, ThType, TheadType, TypesClassNamesOfTable, beforeTheadType } from "../../types/TableTypes";
+import { TdType, ThType } from "../../types/TableTypes";
 import { Tr } from "../pdf-elements";
+import TableContext from "./TableContext";
 import ThComponent from "./ThComponent";
-const ThRowHandler = ({ head, body, classNames, beforeThead }: { head: TheadType; body: TbodyTypes; classNames?: TypesClassNamesOfTable; beforeThead?: beforeTheadType }) => {
+const ThRowHandler = () => {
+    const { table } = useContext(TableContext)
+    if (table == undefined) {
+        return (
+            <></>
+        )
+    }
+    const { head, body, classNames, beforeThead } = table;
+
     const body0: TdType[] = body?.[0] || []
     const getAlign = (thData: ThType) => {
         const headConls = head.map(h => typeof h == 'object' ? h.value : h)
-        const str: string = String(typeof thData == 'object' ? thData.value : thData)
-        const idof = headConls.indexOf(str);
-        console.log({ headConls, str })
+        const tdValue: string | number = typeof thData == 'object' ? thData.value : thData
+        const idof = headConls.indexOf(tdValue);
         if (idof == -1) {
             return ''
         } else {
-            return td_th_textAlign(String(body0[idof]))
+            return td_th_textAlign(body0[idof])
         }
     }
     return (

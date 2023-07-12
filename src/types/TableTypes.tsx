@@ -5,21 +5,16 @@ export type ThType = (string | {
     colSpan?: number;
     rowSpan?: number;
     className?: string;
-    value: string;
+    value: string | number;
 })
 
 export type TdType = (string | {
     colSpan?: number;
     rowSpan?: number;
     className?: string;
-    value: string;
+    value: string | number;
 })
-export type TrType = (string | {
-    colSpan?: number;
-    rowSpan?: number;
-    className?: string;
-    value: string;
-})[]
+export type TrType = (ThType | TdType)[]
 
 export type beforeTheadType = ThType[]
 export type TheadType = ThType[]
