@@ -1,18 +1,19 @@
 import { headerLabelProps } from "./ComponentHeader_Label.Types";
 
+type valueProp = string | number;
 
-export type ThType = (string | {
+export type ThType = (valueProp | {
     colSpan?: number;
     rowSpan?: number;
     className?: string;
-    value: string | number;
+    value: valueProp;
 })
 
-export type TdType = (string | {
+export type TdType = (valueProp | {
     colSpan?: number;
     rowSpan?: number;
     className?: string;
-    value: string | number;
+    value: valueProp;
 })
 export type TrType = (ThType | TdType)[]
 
