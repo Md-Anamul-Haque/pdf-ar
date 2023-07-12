@@ -9,7 +9,7 @@ import TableContext from './TableContext';
 import TdComponent from './TdComponent';
 import ThRowHandler from './ThRowHandler';
 export const TableView = ({ doc }: { doc: TableTypes }) => {
-    const { body, classNames, width, height, margin, headerLabel } = doc;
+    const { body, foot, classNames, width, height, margin, headerLabel } = doc;
     return (
         <TableContext.Provider value={{ table: doc }}>
             <Table {...{ height, width, margin }} className={classNames?.table || ''}>
@@ -33,6 +33,11 @@ export const TableView = ({ doc }: { doc: TableTypes }) => {
                             ))
                         }</Tr>
                     ))}
+                    {foot && <Tr className={classNames?.tfoot_tr || ''} key={uuidv4()}>{
+                        foot.map((tdData: TdType) => (
+                            <TdComponent key={uuidv4()} className={classNames?.tfoot_td || ''} tdData={tdData} />
+                        ))
+                    }</Tr>}
                 </Tbody>
             </Table>
         </TableContext.Provider>
