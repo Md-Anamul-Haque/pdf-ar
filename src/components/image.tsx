@@ -13,8 +13,6 @@ export const ImageView = ({ doc }: { doc: ImageTypes }) => {
             height:${doc?.height || ''};
             margin-top: ${doc?.y || ''};
             margin-left:${doc?.y || ''};
-            grid-column:${`span ${doc?.colSpan || 1} / span ${doc?.colSpan || 1}`};
-            grid-row:${`span ${doc?.rowSpan || 1} / span ${doc?.rowSpan || 1}`};
         `
     return (
         <ImageContainer>

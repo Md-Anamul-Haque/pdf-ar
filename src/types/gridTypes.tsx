@@ -5,6 +5,7 @@ export type gridImageItemProps = {
     type: "image";
     rowSpan?: number;
     colSpan?: number;
+    ImageclassName?: string;
 } & ImageTypes;
 
 export type gridTableItemProps = {

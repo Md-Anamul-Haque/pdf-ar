@@ -24,18 +24,21 @@ const TextOfGrid = ({ item }: { item: gridTextItemProps }) => {
     }
 }
 const ImageOfGrid = ({ item }: { item: gridImageItemProps }) => {
-    const { colSpan, className, height, rowSpan, width } = item
-    return (
+    const { colSpan, className, ImageclassName, height, rowSpan, width } = item
+    return (<GridCol {...{
+        colSpan,
+        rowSpan,
+        className
+    }}>
         <ImageView key={uuidv4()} doc={{
             url: item.url,
-            className: `image-of-grid ${className}`,
+            className: `image-of-grid ${ImageclassName}`,
             height,
             width,
             x: item?.x,
             y: item?.y,
-            colSpan,
-            rowSpan,
-        }} />)
+        }} />
+    </GridCol>)
 }
 const TableOfGrid = ({ item }: { item: gridTableItemProps }) => {
     const { body, head, beforeThead, classNames, foot, headerLabel, margin, className, colSpan, height, rowSpan, width, background, color } = item
