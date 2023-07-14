@@ -11,6 +11,7 @@ import { TextView } from './components/text'
 // import { windowPdf_Props } from "./types/window-pdf.Types"
 import React from 'react'
 import { windowPDF_dataProps } from './App'
+import GridView from './components/grid.js'
 import { windowPdf_Props } from './types/window-pdf.Types'
 
 // interface viewProps{ docs: windowPDF_dataProps, width?: string; height?: string; }
@@ -60,6 +61,11 @@ const PDFReander = ({ docs, margin, width, height, ...props }: viewProps) => {
                                         return (
                                             // @ts-ignore
                                             <TableView key={uuidv4()} doc={doc.doc} />
+                                        )
+                                    } else if (doc.type == 'grid') {
+                                        return (
+                                            // @ts-ignore
+                                            <GridView key={uuidv4()} doc={doc.doc} />
                                         )
                                     } else if (doc.type == 'new-page') {
                                         return (

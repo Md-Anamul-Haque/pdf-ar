@@ -1,8 +1,10 @@
+import { addgrid } from "./components/grid";
 import { addImage } from "./components/image";
 import { addTable } from "./components/table";
 import { addText } from "./components/text";
 import PDFReander from "./PDFReander";
 import { headerLabelProps } from "./types/ComponentHeader_Label.Types";
+import { gridTypes } from "./types/gridTypes";
 import { ImageTypes } from "./types/ImageTypes";
 import { TableTypes } from "./types/TableTypes";
 import { TextTypes } from "./types/TextTypes";
@@ -35,6 +37,9 @@ export class PDF {
     }
     table(table: TableTypes): void {
         addTable(table, this.docs.body)
+    }
+    grid(data: gridTypes): void {
+        addgrid(data, this.docs.body)
     }
     addPage(): void {
         this.docs.body.push({

@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { windowPDF_dataProps } from './App'
 import ComponentHeader from './components/ComponentHeader/index.tsx'
+import GridView from './components/grid'
 import { ImageView } from './components/image'
 import NewPage from "./components/newPage"
 import { Table, Tbody, Td, Th, Thead, Tr } from './components/pdf-elements'
@@ -52,6 +53,11 @@ export const PDFViewer: FC<viewProps> = ({ docs, margin, width, height, ...props
                                     return (
                                         // @ts-ignore
                                         <TableView key={uuidv4()} doc={doc.doc} />
+                                    )
+                                } else if (doc.type == 'grid') {
+                                    return (
+                                        // @ts-ignore
+                                        <GridView key={uuidv4()} doc={doc.doc} />
                                     )
                                 } else if (doc.type == 'new-page') {
                                     return (

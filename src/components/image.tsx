@@ -6,11 +6,13 @@ const ImageContainer = styled.div`
     margin: 5px;
     margin-top:10px;
 `;
-export const ImageView = ({ doc }: any | { doc: ImageTypes }) => {
+export const ImageView = ({ doc }: { doc: ImageTypes }) => {
 
     const Image = styled.img`
             width:${doc?.width || ''};
             height:${doc?.height || ''};
+            margin-top: ${doc?.y || ''};
+            margin-left:${doc?.y || ''}
 `
     return (
         <ImageContainer>

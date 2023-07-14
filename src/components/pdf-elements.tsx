@@ -79,3 +79,31 @@ export const Tfoot = styled.tfoot`
 `;
 
 
+// -------------------------------------------------------------------------------
+export const GridContainer = styled.div`
+  display: grid;
+  row-gap:${(props: any) => props?.rowGap};
+`;
+export const GridRow = styled.div`
+  display: grid;
+  grid-template-columns:${(props: any) => typeof props?.gridTemplateColumns == 'number' ? `repeat(${props?.gridTemplateColumns}, minmax(0, auto))` : props?.gridTemplateColumns || 'repeat(12, minmax(0, auto))'};
+  grid-template-rows:${(props: any) => typeof props?.gridTemplateRows == 'number' ? `repeat(${props?.gridTemplateRows}, minmax(0, auto))` : props?.gridTemplateRows || 'repeat(12, minmax(0, auto))'};
+  gap: ${(props: any) => typeof props?.gap == 'number' ? `${props?.gap}px` : props?.gap || '0px'};
+  row-gap:${(props: any) => props?.rowGap};
+  column-gap:${(props: any) => props?.colGap};
+  height:${(props: any) => props?.height};
+  width:${(props: any) => props?.width};
+  background:${(props: any) => props?.background};
+  color:${(props: any) => props?.color};
+`;
+
+export const GridCol = styled.div`
+  display: grid;
+  gap: ${(props: any) => typeof props?.gap == 'number' ? `${props?.gap}px` : props?.gap || '0px'};
+  row-gap:${(props: any) => props?.rowGap};
+  column-gap:${(props: any) => props?.colGap};
+  height:${(props: any) => props?.height};
+  width:${(props: any) => props?.width};
+  background:${(props: any) => props?.background};
+  color:${(props: any) => props?.color};
+`;
