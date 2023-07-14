@@ -8,10 +8,10 @@ import ComponentHeader from '../ComponentHeader/index.tsx';
 import TableContext from './TableContext';
 import TdComponent from './TdComponent';
 import ThRowHandler from './ThRowHandler';
-export const TableView = ({ doc }: { doc: TableTypes }) => {
-    const { body, foot, classNames, width, height, margin, headerLabel } = doc;
+export const TableView = ({ doc: table }: { doc: TableTypes }) => {
+    const { body, foot, classNames, width, height, margin, headerLabel } = table;
     return (
-        <TableContext.Provider value={{ table: doc }}>
+        <TableContext.Provider value={{ table: table }}>
             <Table {...{ height, width, margin }} className={classNames?.table || ''}>
                 <Thead className={classNames?.thead || ''} >
                     {headerLabel && (
