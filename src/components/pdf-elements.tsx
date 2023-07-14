@@ -109,8 +109,8 @@ export const GridCol = styled.div`
   width:${(props: any) => props?.width};
   background:${(props: any) => props?.background};
   color:${(props: any) => props?.color};
-  grid-column:${(props: any) => props?.colSpan};
-  grid-row:${(props: any) => props?.rowSpan};
+  grid-column:${(props: any) => `span ${props?.colSpan || 1} / span ${props?.colSpan || 1}`};
+  grid-row:${(props: any) => `span ${props?.rowSpan || 1} / span ${props?.rowSpan || 1}`};
   border:1px solid pink;
   padding:7px 10px;
   border-radius:8px;

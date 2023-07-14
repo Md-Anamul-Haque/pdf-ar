@@ -5,4 +5,6 @@ export interface ImageTypes {
     width?: string;
     height?: string;
     className?: string;
+    rowSpan?: number;
+    colSpan?: number;
 }

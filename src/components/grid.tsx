@@ -1,6 +1,6 @@
 import React from 'react'
 import { v4 as uuidv4 } from 'uuid'
-import { GridItemProps, gridDataProps, gridTableItemProps, gridTextItemProps, gridTypes } from '../types/gridTypes'
+import { GridItemProps, gridDataProps, gridImageItemProps, gridTableItemProps, gridTextItemProps, gridTypes } from '../types/gridTypes'
 import { windowPdf_Props } from '../types/window-pdf.Types'
 import { ImageView } from './image'
 import { GridCol, GridContainer, GridRow } from './pdf-elements'
@@ -22,6 +22,20 @@ const TextOfGrid = ({ item }: { item: gridTextItemProps }) => {
             <p className='text-of-grid'>{item}</p>
         )
     }
+}
+const ImageOfGrid = ({ item }: { item: gridImageItemProps }) => {
+    const { colSpan, className, height, rowSpan, width } = item
+    return (
+        <ImageView key={uuidv4()} doc={{
+            url: item.url,
+            className: `image-of-grid ${className}`,
+            height,
+            width,
+            x: item?.x,
+            y: item?.y,
+            colSpan,
+            rowSpan,
+        }} />)
 }
 const TableOfGrid = ({ item }: { item: gridTableItemProps }) => {
     const { body, head, beforeThead, classNames, foot, headerLabel, margin, className, colSpan, height, rowSpan, width, background, color } = item
@@ -89,16 +103,7 @@ const GridView = ({ doc }: { doc: gridTypes }) => {
                             items?.map((item: GridItemProps) => {
                                 if (typeof item == 'object') {
                                     if (item?.type == 'image') {
-                                        return (
-                                            <ImageView key={uuidv4()} doc={{
-                                                url: item.url,
-                                                className: `image-of-grid ${item?.className}`,
-                                                height: item?.height,
-                                                width: item?.width,
-                                                x: item?.x,
-                                                y: item?.y
-                                            }} />
-                                        )
+                                        return (<ImageOfGrid key={uuidv4()} item={item} />)
                                     } else if (item?.type == 'table') {
                                         return (<TableOfGrid key={uuidv4()} item={item} />)
                                     } else {
